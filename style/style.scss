@@ -1,0 +1,61 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	color: white;
+}
+
+body {
+	background-color: #212121;
+	height: 100vh;
+	width: 100vw;
+
+	#background {
+		display: flex;
+		justify-content: center;
+		height: inherit;
+		width: inherit;
+		opacity: 0;
+		transition: opacity ease-in-out 1000ms;
+		background-image: url(../imgs/pogfilepicColorNoBackground.png);
+		background-repeat: no-repeat;
+		background-size: calc(100% - 10em);
+		background-position: 10em -8.4em;
+
+		#pageLoader {
+			position: absolute;
+			transition: ease-in-out 500ms;
+			background-color: white;
+			left: 0;
+			height: 100%;
+			width: 0%;
+		}
+
+		#sidebar {
+			position: absolute;
+			background-color: #3b3b3b;
+			transition: left ease-in-out 500ms, opacity ease-in-out 500ms;
+			width: 10em;
+			height: 100%;
+			left: 0;
+			#sidebarContainer {
+				.content {
+					height: max-content;
+					outline: none;
+					display: flex;
+					justify-content: center;
+					transition: ease-in-out 200ms;
+					cursor: pointer;
+
+					img {
+						padding-top: 1em;
+						max-width: 80%;
+					}
+				}
+			}
+		}
+
+		#contentContainer {
+		}
+	}
+}
