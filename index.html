@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/style.css">
-    <script src="javascript.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet"> 
+    <script src="javascript.js"></script><link rel="preconnect" href="https://fonts.gstatic.com">
     <title>BonkHomePage</title>
 </head>
 <body onload="pageLoad()">
@@ -13,23 +14,27 @@
         <div id="pageLoader"></div>
         <div id="sidebar">
             <div id="sidebarContainer">
-                <div class="content" onmouseover="expand(this, 1)" onmouseout="expand(this, 0)" onclick="pageTransition('youtube.com')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Logo_of_YouTube_%282015-2017%29.svg/1280px-Logo_of_YouTube_%282015-2017%29.svg.png" alt="youtube">
-                </div>
-                <div class="content" onmouseover="expand(this, 1)" onmouseout="expand(this, 0)" onclick="pageTransition('1337x.to')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/1337X_logo.svg/1200px-1337X_logo.svg.png" alt="1337x">
-                </div>
-                <div class="content" onmouseover="expand(this, 1)" onmouseout="expand(this, 0)" onclick="pageTransition('netflix.com')">
-                    <img src="https://www.freepnglogos.com/uploads/netflix-tv-logo-png-9.png" alt="netflix">
-                </div>
-                <div class="content" onmouseover="expand(this, 1)" onmouseout="expand(this, 0)" onclick="pageTransition('github.com')">
-                    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Logo.png" alt="netflix">
+            </div>
+            <div class="content" id="trashcan" ondrop="drop(event, this)" ondragover="allowDrop(event)">
+                <img src="https://freeiconshop.com/wp-content/uploads/edd/trash-var-flat.png" alt="trashIcon">
+            </div>
+            <div class="content" id="newContent">
+                <p id="addContentButton" onclick="toggleAddContentMenu(1, 0)">Add Content</p>
+                <div id="addContentMenu">
+                    <div id="contentImage">
+                        <img id="imageOutput" src="" alt="">
+                        <form id="bookmarkForm">
+                            <input type="url" id="imageInput" name="Image Link" oninput="loadImage()" placeholder="Image Link">
+                            <input type="text" id="nameInput" name="Name" placeholder="Link (google.com)">
+                        </form>
+                    </div>
+                    <div id="buttons">
+                        <button id="cancelButton" onclick="toggleAddContentMenu(0, 0)"><p class="buttonText">Cancel</p></button>
+                        <button id="applyButton" onclick="toggleAddContentMenu(0, 1)"><p class="buttonText">Apply</p></button>  
+                    </div>
                 </div>
             </div>
         </div>
-        <!-- <div id="contentContainer">
-            
-        </div> -->
     </div>
 </body>
 </html>

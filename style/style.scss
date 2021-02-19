@@ -3,6 +3,7 @@
 	padding: 0;
 	box-sizing: border-box;
 	color: white;
+	font-family: "Roboto", sans-serif;
 }
 
 body {
@@ -25,7 +26,7 @@ body {
 		#pageLoader {
 			position: absolute;
 			transition: ease-in-out 500ms;
-			background-color: white;
+			background-color: rgb(24, 26, 27);
 			left: 0;
 			height: 100%;
 			width: 0%;
@@ -40,14 +41,15 @@ body {
 			left: 0;
 			#sidebarContainer {
 				.content {
-					height: max-content;
+					height: 3em;
+					width: 100%;
 					outline: none;
 					display: flex;
 					justify-content: center;
 					transition: ease-in-out 200ms;
-					cursor: pointer;
 
-					img {
+					.logo {
+						cursor: pointer;
 						padding-top: 1em;
 						max-width: 80%;
 					}
@@ -55,7 +57,115 @@ body {
 			}
 		}
 
-		#contentContainer {
+		.content {
+			height: 3em;
+			width: 100%;
+			outline: none;
+			display: flex;
+			justify-content: center;
+			transition: ease-in-out 200ms;
+		}
+
+		#trashcan {
+			margin-top: 0;
+			height: 0;
+		}
+
+		#newContent {
+			margin-top: 1em;
+			position: absolute;
+			left: 0;
+			display: flex;
+			align-items: center;
+			background-color: #212121;
+			overflow: hidden;
+
+			#addContentButton {
+				color: whitesmoke;
+				transition: ease-in-out 100ms;
+			}
+
+			p:hover {
+				cursor: pointer;
+				transform: scaleX(1.1) scaleY(1.1);
+			}
+
+			#addContentMenu {
+				pointer-events: none;
+				transition: ease-in-out 300ms;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				position: absolute;
+				opacity: 0;
+				width: 100%;
+				height: 100%;
+
+				#contentImage {
+					transition: height ease-in-out 500ms;
+					display: flex;
+					justify-content: flex-end;
+					align-items: center;
+					flex-direction: column;
+					height: 3em;
+					width: 22em;
+					box-shadow: 2px 2px 4px rgba($color: #000000, $alpha: 0.2);
+					background-color: #2e2e2e;
+					overflow: hidden;
+
+					img {
+						transition: ease-in-out 500ms;
+						width: 20em;
+						height: 6em;
+						margin: -6em 0 0 0;
+						border: none;
+						outline: none;
+					}
+
+					input {
+						background-color: #2e2e2e;
+						text-align: center;
+						width: 100%;
+						font-size: 14px;
+						padding: 0.25em;
+						border: none;
+						outline: none;
+					}
+				}
+
+				#buttons {
+					display: flex;
+					justify-content: space-between;
+
+					button {
+						background-color: #555555;
+						border: 0;
+						outline: 0;
+						padding: 1em 2em;
+						cursor: pointer;
+
+						.buttonText {
+							opacity: 1;
+							font-size: 20px;
+							color: whitesmoke;
+						}
+					}
+
+					button:hover {
+						.buttonText {
+							transform: scaleX(1.1) scaleY(1.1);
+						}
+					}
+
+					#cancelButton {
+						border-radius: 0 10px 0 0;
+					}
+
+					#applyButton {
+						border-radius: 10px 0 0 0;
+					}
+				}
+			}
 		}
 	}
 }
