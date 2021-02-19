@@ -20,7 +20,7 @@ body {
 		transition: opacity ease-in-out 1000ms;
 		background-image: url(../imgs/pogfilepicColorNoBackground.png);
 		background-repeat: no-repeat;
-		background-size: calc(100% - 10em);
+		background-size: calc(100% - 10em) cover;
 		background-position: 10em -8.4em;
 
 		#pageLoader {
