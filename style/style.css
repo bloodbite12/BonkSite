@@ -27,7 +27,7 @@ body #background {
   transition: opacity ease-in-out 1000ms;
   background-image: url(../imgs/pogfilepicColorNoBackground.png);
   background-repeat: no-repeat;
-  background-size: calc(100% - 10em) cover;
+  background-size: calc(100% - 10em);
   background-position: 10em -8.4em;
 }
 
@@ -214,5 +214,47 @@ body #background #newContent #addContentMenu #buttons #cancelButton {
 
 body #background #newContent #addContentMenu #buttons #applyButton {
   border-radius: 10px 0 0 0;
+}
+
+body #background #snake {
+  margin-top: 10em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow: hidden !important;
+  width: 450px;
+  height: 450px;
+}
+
+body #background #snake #playGameButton {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+  position: absolute;
+  height: 4em;
+  width: 10em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #3b3b3b;
+  -webkit-transition: ease-in-out 300ms;
+  transition: ease-in-out 300ms;
+  border-radius: 1em;
+}
+
+body #background #snake #playGameButton p {
+  text-align: center;
+  width: 100%;
+}
+
+body #background #snake #game {
+  display: none;
+  margin: -15px 0 0 -20px;
+  width: 500px !important;
+  height: 500px !important;
 }
 /*# sourceMappingURL=style.css.map */

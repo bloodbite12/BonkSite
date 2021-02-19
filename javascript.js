@@ -5,6 +5,21 @@ function pageLoad() {
     background.style.opacity = "1";
 }
 
+function playGame() {
+    let game = document.getElementById("game");
+    let button = document.getElementById("playGameButton");
+    gameIframe = document.createElement("iframe");
+    gameIframe.src = "https://www.lexaloffle.com/bbs/widget.php?pid=snake_afk";
+    gameIframe.allowfullscreen = true;
+    gameIframe.width="621";
+    gameIframe.height="513";
+    gameIframe.style.border = "none";
+    gameIframe.style.overflow = "hidden";
+    game.appendChild(gameIframe);
+    game.style.display = "block";
+    button.style.display = "none";
+}
+
 function expand(self, expandBool) {
     if (expandBool) {
         self.style.transform = "scaleX(1.1) scaleY(1.1)";
