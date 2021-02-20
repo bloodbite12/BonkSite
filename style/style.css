@@ -8,7 +8,7 @@
 }
 
 body {
-  background-color: #212121;
+  background-color: #181818;
   height: 100vh;
   width: 100vw;
 }
@@ -25,10 +25,6 @@ body #background {
   opacity: 0;
   -webkit-transition: opacity ease-in-out 1000ms;
   transition: opacity ease-in-out 1000ms;
-  background-image: url(../imgs/pogfilepicColorNoBackground.png);
-  background-repeat: no-repeat;
-  background-size: calc(100% - 10em);
-  background-position: 10em -8.4em;
 }
 
 body #background #pageLoader {
@@ -43,7 +39,7 @@ body #background #pageLoader {
 
 body #background #sidebar {
   position: absolute;
-  background-color: #3b3b3b;
+  background-color: #202020;
   -webkit-transition: left ease-in-out 500ms, opacity ease-in-out 500ms;
   transition: left ease-in-out 500ms, opacity ease-in-out 500ms;
   width: 10em;
@@ -100,7 +96,7 @@ body #background #newContent {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #212121;
+  background-color: #383838;
   overflow: hidden;
 }
 
@@ -152,11 +148,11 @@ body #background #newContent #addContentMenu #contentImage {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 3em;
+  height: 4em;
   width: 22em;
   -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
           box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  background-color: #2e2e2e;
+  background-color: #383838;
   overflow: hidden;
 }
 
@@ -164,18 +160,35 @@ body #background #newContent #addContentMenu #contentImage img {
   -webkit-transition: ease-in-out 500ms;
   transition: ease-in-out 500ms;
   width: 20em;
-  height: 6em;
+  height: 4em;
   margin: -6em 0 0 0;
   border: none;
   outline: none;
 }
 
 body #background #newContent #addContentMenu #contentImage input {
-  background-color: #2e2e2e;
+  background-color: #383838;
   text-align: center;
   width: 100%;
   font-size: 14px;
   padding: 0.25em;
+  border: none;
+  outline: none;
+}
+
+body #background #newContent #addContentMenu #contentImage #checkbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto;
+  height: 1em;
+  width: 30%;
+}
+
+body #background #newContent #addContentMenu #contentImage #checkbox #invertImage {
+  margin: 0 1em;
+  background-color: black;
+  width: 16px;
   border: none;
   outline: none;
 }
@@ -190,7 +203,7 @@ body #background #newContent #addContentMenu #buttons {
 }
 
 body #background #newContent #addContentMenu #buttons button {
-  background-color: #555555;
+  background-color: #474747;
   border: 0;
   outline: 0;
   padding: 1em 2em;
@@ -216,7 +229,23 @@ body #background #newContent #addContentMenu #buttons #applyButton {
   border-radius: 10px 0 0 0;
 }
 
-body #background #snake {
+body #background #main {
+  width: calc(100% - 10em);
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  background-image: url(../imgs/pogfilepicColorNoBackground.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  right: 0;
+}
+
+body #background #main #snake {
   margin-top: 10em;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -229,7 +258,7 @@ body #background #snake {
   height: 490px;
 }
 
-body #background #snake #playGameButton {
+body #background #main #snake #playGameButton {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -240,18 +269,18 @@ body #background #snake #playGameButton {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #3b3b3b;
+  background-color: #383838;
   -webkit-transition: ease-in-out 300ms;
   transition: ease-in-out 300ms;
   border-radius: 1em;
 }
 
-body #background #snake #playGameButton p {
+body #background #main #snake #playGameButton p {
   text-align: center;
   width: 100%;
 }
 
-body #background #snake #game {
+body #background #main #snake #game {
   display: none;
   margin: -12px 0 0 -58px;
   width: 500px !important;

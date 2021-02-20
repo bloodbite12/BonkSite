@@ -26,7 +26,11 @@
                         <form id="bookmarkForm">
                             <input type="url" id="imageInput" name="Image Link" oninput="loadImage()" placeholder="Image Link">
                             <input type="text" id="nameInput" name="Name" placeholder="Link (google.com)">
+                            <div id="checkbox">
+                                <input type="checkbox" id="invertImage" onclick="invert(1)">Invert</input:Checkbox>
+                            </div>
                         </form>
+                        
                     </div>
                     <div id="buttons">
                         <button id="cancelButton" onclick="toggleAddContentMenu(0, 0)"><p class="buttonText">Cancel</p></button>
@@ -35,12 +39,13 @@
                 </div>
             </div>
         </div>
-
-        <div id="snake">
-            <div id="playGameButton" onmouseover="expand(this, 1)" onmouseout="expand(this, 0)" onclick="playGame()">
-                <p>Play Snake</p>
-            </div>
-            <div id="game">
+        <div id="main">
+            <div id="snake">
+                <div id="playGameButton" onmouseover="expand(this, 1)" onmouseout="expand(this, 0)" onclick="playGame()">
+                    <p>Play Snake</p>
+                </div>
+                <div id="game">
+                </div>
             </div>
         </div>
     </div>

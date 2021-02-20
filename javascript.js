@@ -29,6 +29,17 @@ function expand(self, expandBool) {
     }
 }
 
+function invert(bool) {
+    let image = document.getElementById("imageOutput");
+    // console.log(image.style.filter);
+    if (image.style.filter === "invert(0)" || !image.style.filter) {
+        image.style.filter = "invert(1)";
+    }
+    else if (!bool || image.style.filter === "invert(1)") {
+        image.style.filter = "invert(0)";
+    }
+}
+
 function pageTransition(self) {
     var sidebar = document.getElementById("sidebar");
     var pageLoader = document.getElementById("pageLoader");
@@ -39,7 +50,15 @@ function pageTransition(self) {
 
     setTimeout(myURL, 400);
     function myURL(){
-        window.open('https://'+self.alt, '_self');
+        // console.log(self.alt.slice(0, 4));
+        if (self.alt.slice(0, 4) != "http")
+        {
+            window.open('https://'+ self.alt, '_self');
+
+        }
+        else {
+            // window.open(self.alt, '_self');
+        }
     }
 }
 
@@ -85,7 +104,7 @@ function drop(ev, self) {
     }
     else {
         let bookmarkContainer = document.getElementById("sidebarContainer");
-        console.log("remove");
+        // console.log("remove");
         bookmarkContainer.removeChild(dragSrcEl);
         removeLocalBookmark(dragSrcEl);
     }
@@ -99,8 +118,18 @@ function moveBookmark(target, self) {
     let bookmarks = JSON.parse(localStorage.getItem("bookmarks"));
     let selfLogoSrc = self.children[0].src;
     let selfLogoAlt = self.children[0].alt;
+    let selfLogoInv = self.children[0].style.filter;
     let targetLogoSrc = target.children[0].src;
     let targetLogoAlt = target.children[0].alt;
+    let targetLogoInv = target.children[0].style.filter;
+
+    if (selfLogoInv) {
+        selfLogoAlt += 'true';
+    }
+    if (targetLogoInv) {
+        targetLogoAlt += 'true';
+    }
+
     const bookmarkIndexSelf = JSON.stringify(selfLogoSrc + "'" + selfLogoAlt);
     const bookmarkIndexTarget = JSON.stringify(targetLogoSrc + "'" + targetLogoAlt);
 
@@ -109,9 +138,11 @@ function moveBookmark(target, self) {
     // console.log("target = " + bookmarks.indexOf(bookmarkIndexTarget));
     // console.log("self = " + bookmarks[bookmarks.indexOf(bookmarkIndexSelf)]);
     // console.log("target = " + bookmarks[bookmarks.indexOf(bookmarkIndexTarget)]);
-
     let selfTemp = bookmarks[bookmarks.indexOf(bookmarkIndexSelf)];
     let targetTemp = bookmarks[bookmarks.indexOf(bookmarkIndexTarget)];
+    // console.log(bookmarks.indexOf(bookmarkIndexSelf));
+    // console.log(bookmarks.indexOf(bookmarkIndexTarget));
+
     if (bookmarks.indexOf(bookmarkIndexSelf) > bookmarks.indexOf(bookmarkIndexTarget))
     {
         bookmarks[bookmarks.indexOf(bookmarkIndexSelf)] = bookmarks[bookmarks.indexOf(bookmarkIndexTarget)];
@@ -127,24 +158,6 @@ function moveBookmark(target, self) {
     // temp = bookmarks[bookmarks.indexOf(bookmarkIndexSelf)];
     localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
     // console.log(bookmarks);
-}
-
-function removeLocalBookmark(bookmark) {
-    let bookmarks;
-    if (localStorage.getItem("bookmarks") === null) {
-      bookmarks = [];
-    } else {
-      bookmarks = JSON.parse(localStorage.getItem("bookmarks"));
-    }
-    if (bookmark != null) {
-        const bookmarkIndex = bookmark.children[0].innerText;
-        bookmarks.splice(bookmarks.indexOf(bookmarkIndex), 1);
-    }
-    else {
-        console.log(bookmarks.indexOf(bookmark));
-        bookmarks.splice(bookmarks.indexOf(bookmark), 1);
-    }
-    localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
 }
 
 function toggleAddContentMenu(show, save) {
@@ -165,8 +178,9 @@ function toggleAddContentMenu(show, save) {
         contextMenu.backgroundColor = "#3b3b3b";
         contextMenu.width = "22em";
         contextMenu.height = "20em";
-        contextMenu.left = "calc(50vw - 8em)";
+        contextMenu.left = "calc(50vw - 6em)";
         contextMenu.borderRadius = "10px";
+        contextMenu.zIndex = "1";
 
         addContentMenu.opacity = "1";
         addContentMenu.pointerEvents = "unset";
@@ -175,7 +189,7 @@ function toggleAddContentMenu(show, save) {
         button.opacity = "1";
 
         contextMenu.position = "relative";
-        contextMenu.backgroundColor = "#212121";
+        contextMenu.backgroundColor = "$color3";
         contextMenu.width = "10em";
         contextMenu.height = "3em";
         contextMenu.left = "0";
@@ -188,8 +202,9 @@ function toggleAddContentMenu(show, save) {
             addBookmark();
         }
         img.src = ""
-        imgContainer.height = "3em";
+        imgContainer.height = "4em";
         bookmarkForm.reset();
+        invert(0);
     }
     
 }
@@ -197,6 +212,9 @@ function toggleAddContentMenu(show, save) {
 function addBookmark() {
     var imageInput = document.getElementById("imageInput").value;
     var nameInput = document.getElementById("nameInput").value;
+    var inverted = document.getElementById("invertImage").checked;
+
+    console.log(inverted);
 
     var bookmarkContainer = document.getElementById("sidebarContainer");
     const bookmarkDiv = document.createElement("div");
@@ -211,6 +229,10 @@ function addBookmark() {
     newLogo.classList.add("logo");
     newLogo.src = imageInput;
     newLogo.alt = nameInput;
+    if (inverted) {
+        newLogo.style.filter = "invert(1)";
+        newLogo.alt = nameInput + inverted;
+    }
     newLogo.onclick= function() {pageTransition(this)};
     bookmarkDiv.appendChild(newLogo);
     bookmarkContainer.appendChild(bookmarkDiv);
@@ -249,15 +271,13 @@ function getBookmarks() {
       bookmarks = [];
     } else {
       bookmarks = JSON.parse(localStorage.getItem("bookmarks"));
-      console.log(bookmarks);
+    //   console.log(bookmarks);
     }
     bookmarks.forEach(function(bookmark) {
         if (bookmark != null) {
             //Create bookmark div
             let attributes = bookmark.split("'");
             // console.log(bookmark);
-            // console.log(attributes[0].slice(1));
-            // console.log(attributes[1].slice(0, -1));
             const bookmarkDiv = document.createElement("div");
             bookmarkDiv.classList.add("content");
             bookmarkDiv.onmouseover = function() {expand(this, 1)};
@@ -270,6 +290,10 @@ function getBookmarks() {
             newLogo.classList.add("logo");
             newLogo.src = attributes[0].slice(1);
             newLogo.alt = attributes[1].slice(0, -1);
+            if (attributes[1].slice(0 -5) === 'true"') {
+                newLogo.alt = attributes[1].slice(0, -5);
+                newLogo.style.filter = "invert(1)";
+            }
             newLogo.onclick = function() {pageTransition(this)};
             bookmarkDiv.appendChild(newLogo);
             //attach final bookmark
@@ -277,7 +301,41 @@ function getBookmarks() {
         } 
         else {
             console.log("corrupt");
+            console.log(bookmark);
             removeLocalBookmark(bookmark);
         }
     });
+}
+
+function removeLocalBookmark(bookmark) {
+    let bookmarks;
+    if (localStorage.getItem("bookmarks") === null) {
+      bookmarks = [];
+    } else {
+      bookmarks = JSON.parse(localStorage.getItem("bookmarks"));
+    }
+
+    bookmarkSrc = bookmark.children[0].src;
+    bookmarkAlt = bookmark.children[0].alt;
+    bookmarkInv = bookmark.children[0].style.filter;
+    // console.log(bookmarkSrc);
+    // console.log(bookmarkAlt);
+    // console.log(bookmarkInv);
+    // let attributes = bookmark.split("'");
+
+    if (bookmark != null) {
+        let bookmarkIndex = JSON.stringify(bookmarkSrc + "'" + bookmarkAlt);
+        if (bookmarkInv) {
+            bookmarkIndex = JSON.stringify(bookmarkSrc + "'" + bookmarkAlt + 'true');
+        }
+        // console.log("not null " + bookmarks);
+        // console.log("not null " + bookmarkIndex);
+        // console.log("not null " + bookmarks.indexOf(bookmarkIndex));
+        bookmarks.splice(bookmarks.indexOf(bookmarkIndex), 1);
+    }
+    else {
+        bookmarks.splice(bookmarks.indexOf(bookmark), 1);
+    }
+
+    localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
 }
