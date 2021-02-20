@@ -36,6 +36,7 @@ body {
 
 		#sidebar {
 			position: absolute;
+			z-index: 5;
 			background-color: $color2;
 			transition: left ease-in-out 500ms, opacity ease-in-out 500ms;
 			width: 10em;

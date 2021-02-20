@@ -46,6 +46,7 @@ function pageTransition(self) {
     sidebar.style.left = "calc(100% - 10em)";
     sidebar.style.opacity = "0";
     pageLoader.style.width = "100%";
+    pageLoader.style.zIndex = 5;
     // console.log(self.alt);
 
     setTimeout(myURL, 400);
@@ -57,7 +58,7 @@ function pageTransition(self) {
 
         }
         else {
-            // window.open(self.alt, '_self');
+            window.open(self.alt, '_self');
         }
     }
 }

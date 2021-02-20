@@ -39,6 +39,7 @@ body #background #pageLoader {
 
 body #background #sidebar {
   position: absolute;
+  z-index: 5;
   background-color: #202020;
   -webkit-transition: left ease-in-out 500ms, opacity ease-in-out 500ms;
   transition: left ease-in-out 500ms, opacity ease-in-out 500ms;
