@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", getBookmarks);
+document.addEventListener("DOMContentLoaded", getBackground);
 
 function pageLoad() {
     var background = document.getElementById("background");
@@ -29,8 +30,115 @@ function expand(self, expandBool) {
     }
 }
 
+let menuOpen = false;
+function showMenu() {
+    const menu = document.querySelector('#menu');
+    const menuBtn = document.querySelector('.menuButton');
+    const menuContent = document.querySelector('#menuContent');
+    if (!menuOpen) {
+        menuOpen = true;
+        menuBtn.classList.add('open');
+        menu.style.width = "20em";
+        menu.style.height = "100vh";
+        menuContent.style.opacity = "1";
+    }
+    else {
+        menuOpen = false;
+        menuBtn.classList.remove('open');
+        menu.style.width = "4em";
+        menu.style.height = "4em";
+        menuContent.style.opacity = "0";
+    }
+}
+
+function toggleChangeBackGround(show, save) {
+    var backgroundMenu = document.querySelector(".newBackground").style;
+    var button = document.querySelector(".addBackgroundButton").style;
+    var addContentMenu = document.querySelector(".addBackgroundMenu").style;
+
+    var img = document.querySelector(".imageOutput");
+    var imgContainer = document.querySelector(".backgroundImage").style;
+    var backgroundForm = document.querySelector(".backgroundForm");
+    
+    if (show && (!button.opacity || button.opacity === "1")) {
+
+        button.opacity = "0";
+
+        backgroundMenu.position = "absolute";
+        backgroundMenu.backgroundColor = "#3b3b3b";
+        backgroundMenu.width = "22em";
+        backgroundMenu.height = "20em";
+        backgroundMenu.left = "calc(-50vw + 6em)";
+        backgroundMenu.borderRadius = "10px";
+        backgroundMenu.zIndex = "1";
+        backgroundMenu.marginTop = "20em";
+
+        addContentMenu.opacity = "1";
+        addContentMenu.pointerEvents = "unset";
+    }
+    else if (!show) {
+        button.opacity = "1";
+
+        backgroundMenu.backgroundColor = "$color3";
+        backgroundMenu.width = "100%";
+        backgroundMenu.height = "3em";
+        backgroundMenu.left = "0";
+        backgroundMenu.borderRadius = "0";
+        backgroundMenu.marginTop = "1em";
+        addContentMenu.opacity = "0";
+        addContentMenu.pointerEvents = "none";
+        
+        if (save) {
+            changeBackground();
+        }
+        img.src = ""
+        imgContainer.height = "4em";
+        backgroundForm.reset();
+        invert(0);
+    }
+}
+
+function changeBackground() {
+    var imageInput = document.querySelector(".backgroundInput").value;
+    var currentBackground = document.querySelector("#main").style;
+    console.log(imageInput);
+    currentBackground.backgroundImage = "url("+imageInput+")";
+    saveLocalBackground(imageInput);
+}
+
+function saveLocalBackground(newBackground) {
+    let background;
+    background = [];
+    background.push(JSON.stringify(newBackground));
+    localStorage.setItem("background", JSON.stringify(background));
+}
+
+function getBackground() {
+    var currentBackground = document.querySelector("#main").style;
+    let background;
+    if (localStorage.getItem("background") === null) {
+        background = [];
+    } else {
+        background = JSON.parse(localStorage.getItem("background"));
+    //   console.log(bookmarks);
+    }
+    background.forEach(function(item) {
+        if (item != null) {
+            //Create bookmark div
+            let backgroundLink = item.split("'");
+            currentBackground.backgroundImage = "url("+backgroundLink[0]+")";
+        } 
+        else {
+            console.log("corrupt");
+            console.log(item);
+        }
+    });
+}
+
+
+
 function invert(bool) {
-    let image = document.getElementById("imageOutput");
+    let image = document.querySelector(".imageOutput");
     // console.log(image.style.filter);
     if (image.style.filter === "invert(0)" || !image.style.filter) {
         image.style.filter = "invert(1)";
@@ -163,13 +271,13 @@ function moveBookmark(target, self) {
 
 function toggleAddContentMenu(show, save) {
    
-    var contextMenu = document.getElementById("newContent").style;
-    var button = document.getElementById("addContentButton").style;
-    var addContentMenu = document.getElementById("addContentMenu").style;
+    var contextMenu = document.querySelector(".newContent").style;
+    var button = document.querySelector(".addContentButton").style;
+    var addContentMenu = document.querySelector(".addContentMenu").style;
 
-    var img = document.getElementById("imageOutput");
-    var imgContainer = document.getElementById("contentImage").style;
-    var bookmarkForm = document.getElementById("bookmarkForm");
+    var img = document.querySelector(".imageOutput");
+    var imgContainer = document.querySelector(".contentImage").style;
+    var bookmarkForm = document.querySelector(".bookmarkForm");
     
     if (show && (!button.opacity || button.opacity === "1")) {
 
@@ -211,11 +319,11 @@ function toggleAddContentMenu(show, save) {
 }
 
 function addBookmark() {
-    var imageInput = document.getElementById("imageInput").value;
-    var nameInput = document.getElementById("nameInput").value;
-    var inverted = document.getElementById("invertImage").checked;
+    var imageInput = document.querySelector(".imageInput").value;
+    var nameInput = document.querySelector(".nameInput").value;
+    var inverted = document.querySelector("#invertImage").checked;
 
-    console.log(inverted);
+    // console.log(inverted);
 
     var bookmarkContainer = document.getElementById("sidebarContainer");
     const bookmarkDiv = document.createElement("div");
@@ -241,9 +349,9 @@ function addBookmark() {
 }
 
 function loadImage() {
-    var input = document.getElementById("imageInput").value;
-    var img = document.getElementById("imageOutput");
-    var imgContainer = document.getElementById("contentImage").style;
+    var input = document.querySelector(".imageInput").value;
+    var img = document.querySelector(".imageOutput");
+    var imgContainer = document.querySelector(".contentImage").style;
 
     img.src = input;
     img.style.margin = "1em 0";

@@ -18,23 +18,23 @@
             <div class="content" id="trashcan" ondrop="drop(event, this)" ondragover="allowDrop(event)">
                 <img src="https://freeiconshop.com/wp-content/uploads/edd/trash-var-flat.png" alt="trashIcon">
             </div>
-            <div class="content" id="newContent">
-                <p id="addContentButton" onclick="toggleAddContentMenu(1, 0)">Add Content</p>
-                <div id="addContentMenu">
-                    <div id="contentImage">
-                        <img id="imageOutput" src="" alt="">
-                        <form id="bookmarkForm">
-                            <input type="url" id="imageInput" name="Image Link" oninput="loadImage()" placeholder="Image Link">
-                            <input type="text" id="nameInput" name="Name" placeholder="Link (google.com)">
+            <div class="content newContent">
+                <p class="addContentButton" onclick="toggleAddContentMenu(1, 0)">Add Content</p>
+                <div class="addContentMenu">
+                    <div class="contentImage">
+                        <img class="imageOutput" src="" alt="">
+                        <form class="bookmarkForm">
+                            <input type="url" class="imageInput" name="Image Link" oninput="loadImage()" placeholder="Image Link">
+                            <input type="text" class="nameInput" name="Name" placeholder="Link (google.com)">
                             <div id="checkbox">
                                 <input type="checkbox" id="invertImage" onclick="invert(1)">Invert</input:Checkbox>
                             </div>
                         </form>
                         
                     </div>
-                    <div id="buttons">
-                        <button id="cancelButton" onclick="toggleAddContentMenu(0, 0)"><p class="buttonText">Cancel</p></button>
-                        <button id="applyButton" onclick="toggleAddContentMenu(0, 1)"><p class="buttonText">Apply</p></button>  
+                    <div class="buttons">
+                        <button class="cancelButton" onclick="toggleAddContentMenu(0, 0)"><p class="buttonText">Cancel</p></button>
+                        <button class="applyButton" onclick="toggleAddContentMenu(0, 1)"><p class="buttonText">Apply</p></button>  
                     </div>
                 </div>
             </div>
@@ -46,6 +46,28 @@
                 </div>
                 <div id="game">
                 </div>
+            </div>
+        </div>
+        <div id="menu">
+            <div class="menuButton" onclick="showMenu()">
+                <div class="menuButton__bar"></div>
+            </div>
+            <div id="menuContent">
+                <div class="content newBackground">
+                    <p class="addBackgroundButton" onclick="toggleChangeBackGround(1, 0)">Change Background</p>
+                    <div class="addBackgroundMenu">
+                        <div class="backgroundImage">
+                            <img class="imageOutput" src="" alt="">
+                            <form class="backgroundForm">
+                                <input type="url" class="imageInput backgroundInput" name="Image Link" oninput="loadImage()" placeholder="Image Link">
+                        </form>
+                    </div>
+                    <div class="buttons backgroundButtons">
+                        <button class="cancelButton" onclick="toggleChangeBackGround(0, 0)"><p class="buttonText">Cancel</p></button>
+                        <button class="applyButton" onclick="toggleChangeBackGround(0, 1)"><p class="buttonText">Apply</p></button>  
+                    </div>
+                </div>
+            </div>
             </div>
         </div>
     </div>
