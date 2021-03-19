@@ -19,7 +19,8 @@ body p:hover {
           transform: scaleX(1.1) scaleY(1.1);
 }
 
-body .addContentMenu, body .addBackgroundMenu {
+body .addContentMenu,
+body .addBackgroundMenu {
   pointer-events: none;
   -webkit-transition: ease-in-out 300ms;
   transition: ease-in-out 300ms;
@@ -39,7 +40,10 @@ body .addContentMenu, body .addBackgroundMenu {
   height: 100%;
 }
 
-body .addContentMenu .contentImage, body .addContentMenu .backgroundImage, body .addBackgroundMenu .contentImage, body .addBackgroundMenu .backgroundImage {
+body .addContentMenu .contentImage,
+body .addContentMenu .backgroundImage,
+body .addBackgroundMenu .contentImage,
+body .addBackgroundMenu .backgroundImage {
   -webkit-transition: height ease-in-out 500ms;
   transition: height ease-in-out 500ms;
   display: -webkit-box;
@@ -63,7 +67,10 @@ body .addContentMenu .contentImage, body .addContentMenu .backgroundImage, body 
   overflow: hidden;
 }
 
-body .addContentMenu .contentImage img, body .addContentMenu .backgroundImage img, body .addBackgroundMenu .contentImage img, body .addBackgroundMenu .backgroundImage img {
+body .addContentMenu .contentImage img,
+body .addContentMenu .backgroundImage img,
+body .addBackgroundMenu .contentImage img,
+body .addBackgroundMenu .backgroundImage img {
   -webkit-transition: ease-in-out 500ms;
   transition: ease-in-out 500ms;
   width: 20em;
@@ -73,7 +80,10 @@ body .addContentMenu .contentImage img, body .addContentMenu .backgroundImage im
   outline: none;
 }
 
-body .addContentMenu .contentImage input, body .addContentMenu .backgroundImage input, body .addBackgroundMenu .contentImage input, body .addBackgroundMenu .backgroundImage input {
+body .addContentMenu .contentImage input,
+body .addContentMenu .backgroundImage input,
+body .addBackgroundMenu .contentImage input,
+body .addBackgroundMenu .backgroundImage input {
   background-color: #383838;
   text-align: center;
   width: 100%;
@@ -83,7 +93,10 @@ body .addContentMenu .contentImage input, body .addContentMenu .backgroundImage 
   outline: none;
 }
 
-body .addContentMenu .contentImage #checkbox, body .addContentMenu .backgroundImage #checkbox, body .addBackgroundMenu .contentImage #checkbox, body .addBackgroundMenu .backgroundImage #checkbox {
+body .addContentMenu .contentImage #checkbox,
+body .addContentMenu .backgroundImage #checkbox,
+body .addBackgroundMenu .contentImage #checkbox,
+body .addBackgroundMenu .backgroundImage #checkbox {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -92,7 +105,10 @@ body .addContentMenu .contentImage #checkbox, body .addContentMenu .backgroundIm
   width: 30%;
 }
 
-body .addContentMenu .contentImage #checkbox #invertImage, body .addContentMenu .backgroundImage #checkbox #invertImage, body .addBackgroundMenu .contentImage #checkbox #invertImage, body .addBackgroundMenu .backgroundImage #checkbox #invertImage {
+body .addContentMenu .contentImage #checkbox #invertImage,
+body .addContentMenu .backgroundImage #checkbox #invertImage,
+body .addBackgroundMenu .contentImage #checkbox #invertImage,
+body .addBackgroundMenu .backgroundImage #checkbox #invertImage {
   margin: 0 1em;
   background-color: black;
   width: 16px;
@@ -100,11 +116,15 @@ body .addContentMenu .contentImage #checkbox #invertImage, body .addContentMenu 
   outline: none;
 }
 
-body .addContentMenu .backgroundImage, body .addBackgroundMenu .backgroundImage {
+body .addContentMenu .backgroundImage,
+body .addBackgroundMenu .backgroundImage {
   height: 1.65em;
 }
 
-body .addContentMenu .buttons, body .addContentMenu .backgroundImage, body .addBackgroundMenu .buttons, body .addBackgroundMenu .backgroundImage {
+body .addContentMenu .buttons,
+body .addContentMenu .backgroundImage,
+body .addBackgroundMenu .buttons,
+body .addBackgroundMenu .backgroundImage {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -113,7 +133,10 @@ body .addContentMenu .buttons, body .addContentMenu .backgroundImage, body .addB
           justify-content: space-between;
 }
 
-body .addContentMenu .buttons button, body .addContentMenu .backgroundImage button, body .addBackgroundMenu .buttons button, body .addBackgroundMenu .backgroundImage button {
+body .addContentMenu .buttons button,
+body .addContentMenu .backgroundImage button,
+body .addBackgroundMenu .buttons button,
+body .addBackgroundMenu .backgroundImage button {
   background-color: #474747;
   border: 0;
   outline: 0;
@@ -121,23 +144,40 @@ body .addContentMenu .buttons button, body .addContentMenu .backgroundImage butt
   cursor: pointer;
 }
 
-body .addContentMenu .buttons button .buttonText, body .addContentMenu .backgroundImage button .buttonText, body .addBackgroundMenu .buttons button .buttonText, body .addBackgroundMenu .backgroundImage button .buttonText {
+body .addContentMenu .buttons button .buttonText,
+body .addContentMenu .backgroundImage button .buttonText,
+body .addBackgroundMenu .buttons button .buttonText,
+body .addBackgroundMenu .backgroundImage button .buttonText {
   opacity: 1;
   font-size: 20px;
   color: whitesmoke;
 }
 
-body .addContentMenu .buttons button:hover .buttonText, body .addContentMenu .backgroundImage button:hover .buttonText, body .addBackgroundMenu .buttons button:hover .buttonText, body .addBackgroundMenu .backgroundImage button:hover .buttonText {
+body .addContentMenu .buttons button:hover .buttonText,
+body .addContentMenu .backgroundImage button:hover .buttonText,
+body .addBackgroundMenu .buttons button:hover .buttonText,
+body .addBackgroundMenu .backgroundImage button:hover .buttonText {
   -webkit-transform: scaleX(1.1) scaleY(1.1);
           transform: scaleX(1.1) scaleY(1.1);
 }
 
-body .addContentMenu .buttons .cancelButton, body .addContentMenu .backgroundImage .cancelButton, body .addBackgroundMenu .buttons .cancelButton, body .addBackgroundMenu .backgroundImage .cancelButton {
+body .addContentMenu .buttons .cancelButton,
+body .addContentMenu .backgroundImage .cancelButton,
+body .addBackgroundMenu .buttons .cancelButton,
+body .addBackgroundMenu .backgroundImage .cancelButton {
   border-radius: 0 10px 0 0;
 }
 
-body .addContentMenu .buttons .applyButton, body .addContentMenu .backgroundImage .applyButton, body .addBackgroundMenu .buttons .applyButton, body .addBackgroundMenu .backgroundImage .applyButton {
+body .addContentMenu .buttons .applyButton,
+body .addContentMenu .backgroundImage .applyButton,
+body .addBackgroundMenu .buttons .applyButton,
+body .addBackgroundMenu .backgroundImage .applyButton {
   border-radius: 10px 0 0 0;
+}
+
+body .addBackgroundMenu {
+  -webkit-transition: 500ms ease-in-out;
+  transition: 500ms ease-in-out;
 }
 
 body #background {
@@ -214,7 +254,8 @@ body #background #trashcan {
   height: 0;
 }
 
-body #background .newContent, body #background .newBackground {
+body #background .newContent,
+body #background .newBackground {
   margin-top: 1em;
   position: absolute;
   left: 0;
@@ -228,10 +269,19 @@ body #background .newContent, body #background .newBackground {
   overflow: hidden;
 }
 
-body #background .newContent .addContentButton, body #background .newContent .addBackgroundButton, body #background .newBackground .addContentButton, body #background .newBackground .addBackgroundButton {
+body #background .newContent .addContentButton,
+body #background .newContent .addBackgroundButton,
+body #background .newBackground .addContentButton,
+body #background .newBackground .addBackgroundButton {
   color: whitesmoke;
-  -webkit-transition: ease-in-out 100ms;
-  transition: ease-in-out 100ms;
+  -webkit-transition: ease-in-out 500ms;
+  transition: ease-in-out 500ms;
+}
+
+body #background .newContent p,
+body #background .newBackground p {
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 body #background #main {
@@ -295,8 +345,8 @@ body #background #main #snake #game {
 body #background #menu {
   position: absolute;
   background-color: #474747;
-  -webkit-transition: ease-in-out 200ms;
-  transition: ease-in-out 200ms;
+  -webkit-transition: ease-in-out 500ms;
+  transition: ease-in-out 500ms;
   right: 0;
   width: 4em;
   height: 4em;
@@ -322,8 +372,8 @@ body #background #menu .menuButton .menuButton__bar {
   width: 35px;
   height: 5px;
   background-color: #e0e0e0;
-  -webkit-transition: 200ms;
-  transition: 200ms;
+  -webkit-transition: 500ms;
+  transition: 500ms;
   border-radius: 5px;
 }
 
@@ -335,8 +385,8 @@ body #background #menu .menuButton .menuButton__bar::after {
   background-color: #e0e0e0;
   width: 35px;
   height: 5px;
-  -webkit-transition: 200ms;
-  transition: 200ms;
+  -webkit-transition: 500ms;
+  transition: 500ms;
 }
 
 body #background #menu .menuButton .menuButton__bar::before {
@@ -350,21 +400,21 @@ body #background #menu .menuButton .menuButton__bar::after {
 }
 
 body #background #menu .open .menuButton__bar {
-  -webkit-transform: translateX(-50px);
-          transform: translateX(-50px);
+  -webkit-transform: translateX(50px);
+          transform: translateX(50px);
   background: transparent;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 
 body #background #menu .open .menuButton__bar::before {
-  -webkit-transform: translate(50px, 0) rotate(45deg);
-          transform: translate(50px, 0) rotate(45deg);
+  -webkit-transform: translate(-50px, 0) rotate(45deg);
+          transform: translate(-50px, 0) rotate(45deg);
 }
 
 body #background #menu .open .menuButton__bar::after {
-  -webkit-transform: translate(50px, 0) rotate(-45deg);
-          transform: translate(50px, 0) rotate(-45deg);
+  -webkit-transform: translate(-50px, 0) rotate(-45deg);
+          transform: translate(-50px, 0) rotate(-45deg);
 }
 
 body #background #menu #menuContent {

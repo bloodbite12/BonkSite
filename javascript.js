@@ -51,7 +51,7 @@ function showMenu() {
     }
 }
 
-function toggleChangeBackGround(show, save) {
+function toggleChangeBackground(show, save) {
     var backgroundMenu = document.querySelector(".newBackground").style;
     var button = document.querySelector(".addBackgroundButton").style;
     var addContentMenu = document.querySelector(".addBackgroundMenu").style;

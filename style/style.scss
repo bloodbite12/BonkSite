@@ -22,7 +22,8 @@ body {
 		transform: scaleX(1.1) scaleY(1.1);
 	}
 
-	.addContentMenu, .addBackgroundMenu {
+	.addContentMenu,
+	.addBackgroundMenu {
 		pointer-events: none;
 		transition: ease-in-out 300ms;
 		display: flex;
@@ -33,7 +34,8 @@ body {
 		width: 100%;
 		height: 100%;
 
-		.contentImage, .backgroundImage {
+		.contentImage,
+		.backgroundImage {
 			transition: height ease-in-out 500ms;
 			display: flex;
 			justify-content: flex-end;
@@ -85,7 +87,8 @@ body {
 			height: 1.65em;
 		}
 
-		.buttons, .backgroundImage {
+		.buttons,
+		.backgroundImage {
 			display: flex;
 			justify-content: space-between;
 
@@ -117,6 +120,10 @@ body {
 				border-radius: 10px 0 0 0;
 			}
 		}
+	}
+
+	.addBackgroundMenu {
+		transition: 500ms ease-in-out;
 	}
 
 	#background {
@@ -176,7 +183,8 @@ body {
 			height: 0;
 		}
 
-		.newContent, .newBackground {
+		.newContent,
+		.newBackground {
 			margin-top: 1em;
 			position: absolute;
 			left: 0;
@@ -185,9 +193,15 @@ body {
 			background-color: $color4;
 			overflow: hidden;
 
-			.addContentButton, .addBackgroundButton {
+			.addContentButton,
+			.addBackgroundButton {
 				color: whitesmoke;
-				transition: ease-in-out 100ms;
+				transition: ease-in-out 500ms;
+			}
+
+			p {
+				overflow: hidden;
+				white-space: nowrap;
 			}
 		}
 
@@ -239,11 +253,10 @@ body {
 		#menu {
 			position: absolute;
 			background-color: $color5;
-			transition: ease-in-out 200ms;
+			transition: ease-in-out 500ms;
 			right: 0;
 			width: 4em;
 			height: 4em;
-			
 
 			.menuButton {
 				position: relative;
@@ -258,7 +271,7 @@ body {
 					width: 35px;
 					height: 5px;
 					background-color: rgb(224, 224, 224);
-					transition: 200ms;
+					transition: 500ms;
 					border-radius: 5px;
 				}
 
@@ -270,28 +283,28 @@ body {
 					background-color: rgb(224, 224, 224);
 					width: 35px;
 					height: 5px;
-					transition: 200ms;
+					transition: 500ms;
 				}
 
 				.menuButton__bar::before {
 					transform: translateY(-10px);
 				}
-				
+
 				.menuButton__bar::after {
 					transform: translateY(10px);
 				}
 			}
 			.open {
 				.menuButton__bar {
-					transform: translateX(-50px);
+					transform: translateX(50px);
 					background: transparent;
 					box-shadow: none;
 				}
 				.menuButton__bar::before {
-					transform: translate(50px, 0) rotate(45deg);
+					transform: translate(-50px, 0) rotate(45deg);
 				}
 				.menuButton__bar::after {
-					transform: translate(50px, 0) rotate(-45deg);
+					transform: translate(-50px, 0) rotate(-45deg);
 				}
 			}
 
@@ -304,13 +317,13 @@ body {
 				opacity: 0;
 
 				#changeBackground {
-				display: flex;
-				align-content: center;
-				align-items: center;
-				background-color: $color4;
-				height: 3em;
-				width: 100%;
-				cursor: pointer;
+					display: flex;
+					align-content: center;
+					align-items: center;
+					background-color: $color4;
+					height: 3em;
+					width: 100%;
+					cursor: pointer;
 
 					p {
 						width: 100%;
