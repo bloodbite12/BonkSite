@@ -169,18 +169,33 @@ body #background #main #snake #game {
   height: 500px !important;
 }
 
-body #background #main .newContentMenu {
-  width: 20em;
-  height: 30em;
-  margin-top: 10em;
+body #background #main .mainContent {
+  height: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body #background #main .mainContent .newContentMenu {
+  width: 0em;
+  height: 0em;
+  opacity: 0;
   border-radius: 20px;
   background-color: #2c2c2c;
+  -webkit-transition: 200ms ease-in-out;
+  transition: 200ms ease-in-out;
   -webkit-box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
   overflow: hidden;
 }
 
-body #background #main .newContentMenu .imgContainer {
+body #background #main .mainContent .newContentMenu .imgContainer {
   height: 10em;
   background-color: #222222;
   display: -webkit-box;
@@ -193,7 +208,7 @@ body #background #main .newContentMenu .imgContainer {
           justify-content: center;
 }
 
-body #background #main .newContentMenu .imgContainer .img {
+body #background #main .mainContent .newContentMenu .imgContainer .img {
   width: 100%;
   height: 100%;
   background-size: contain;
@@ -201,7 +216,7 @@ body #background #main .newContentMenu .imgContainer .img {
   background-repeat: no-repeat;
 }
 
-body #background #main .newContentMenu .inputForm {
+body #background #main .mainContent .newContentMenu .inputForm {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -212,7 +227,7 @@ body #background #main .newContentMenu .inputForm {
           flex-direction: column;
 }
 
-body #background #main .newContentMenu .inputForm .formContainer {
+body #background #main .mainContent .newContentMenu .inputForm .formContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -222,18 +237,18 @@ body #background #main .newContentMenu .inputForm .formContainer {
           flex-direction: column;
 }
 
-body #background #main .newContentMenu .inputForm .formContainer .input {
+body #background #main .mainContent .newContentMenu .inputForm .formContainer .input {
   padding: 0 0.5em;
   background-color: #363636;
   height: 2em;
   text-align: center;
 }
 
-body #background #main .newContentMenu .inputForm .formContainer .input:last-child {
+body #background #main .mainContent .newContentMenu .inputForm .formContainer .input:last-child {
   margin-bottom: 1em;
 }
 
-body #background #main .newContentMenu .inputForm .checkboxes {
+body #background #main .mainContent .newContentMenu .inputForm .checkboxes {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -245,7 +260,7 @@ body #background #main .newContentMenu .inputForm .checkboxes {
           justify-content: space-evenly;
 }
 
-body #background #main .newContentMenu .inputForm .checkboxes div {
+body #background #main .mainContent .newContentMenu .inputForm .checkboxes div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -255,11 +270,11 @@ body #background #main .newContentMenu .inputForm .checkboxes div {
           flex-direction: column-reverse;
 }
 
-body #background #main .newContentMenu .inputForm .checkboxes input {
+body #background #main .mainContent .newContentMenu .inputForm .checkboxes input {
   margin: 5px 0 0.5em 0;
 }
 
-body #background #main .newContentMenu .buttons {
+body #background #main .mainContent .newContentMenu .buttons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -268,7 +283,7 @@ body #background #main .newContentMenu .buttons {
           justify-content: space-between;
 }
 
-body #background #main .newContentMenu .buttons .button {
+body #background #main .mainContent .newContentMenu .buttons .button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -289,24 +304,24 @@ body #background #main .newContentMenu .buttons .button {
   cursor: pointer;
 }
 
-body #background #main .newContentMenu .buttons .button:hover {
+body #background #main .mainContent .newContentMenu .buttons .button:hover {
   background-color: #3b3b3b;
 }
 
-body #background #main .newContentMenu .buttons .cancel {
+body #background #main .mainContent .newContentMenu .buttons .cancel {
   border-radius: 0 20px 0 0;
 }
 
-body #background #main .newContentMenu .buttons .cancel:hover {
+body #background #main .mainContent .newContentMenu .buttons .cancel:hover {
   -webkit-transform: scale(1.1) translate(3px, -2px);
           transform: scale(1.1) translate(3px, -2px);
 }
 
-body #background #main .newContentMenu .buttons .apply {
+body #background #main .mainContent .newContentMenu .buttons .apply {
   border-radius: 20px 0 0 0;
 }
 
-body #background #main .newContentMenu .buttons .apply:hover {
+body #background #main .mainContent .newContentMenu .buttons .apply:hover {
   -webkit-transform: scale(1.1) translate(-3px, -2px);
           transform: scale(1.1) translate(-3px, -2px);
 }

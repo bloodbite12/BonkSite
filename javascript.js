@@ -53,29 +53,27 @@ function showMenu() {
 }
 
 function addNewContentMenu(isBackground) {
-    const main = document.querySelector("#main");
-        const newContentMenu = document.createElement("div");
-            const imgContainer = document.createElement("div");
-                const img = document.createElement("div");
-            const inputForm = document.createElement("form");
-                const formContainer = document.createElement("div");
-                    const inputURL = document.createElement("input");
-                    const inputText = document.createElement("input");
-            const checkboxes = document.createElement("div");
-                // const checkboxDiv1 = document.createElement("div");
-                //     const checkboxCover = document.createElement("input");
-                //     const checkboxCoverText = document.createElement("label");
-                const checkboxDiv2 = document.createElement("div");
-                    const checkboxInvert = document.createElement("input");
-                    const checkboxInvertText = document.createElement("label");
-            const buttonsContainer = document.createElement("div");
-                const buttonCancel = document.createElement("div");
-                    const buttonTextCancel = document.createElement("p");
-                const buttonApply = document.createElement("div");
-                    const buttonTextApply = document.createElement("p");
+    const newContentMenu = document.querySelector(".newContentMenu");
+        const imgContainer = document.createElement("div");
+            const img = document.createElement("div");
+        const inputForm = document.createElement("form");
+            const formContainer = document.createElement("div");
+                const inputURL = document.createElement("input");
+                const inputText = document.createElement("input");
+        const checkboxes = document.createElement("div");
+            // const checkboxDiv1 = document.createElement("div");
+            //     const checkboxCover = document.createElement("input");
+            //     const checkboxCoverText = document.createElement("label");
+            const checkboxDiv2 = document.createElement("div");
+                const checkboxInvert = document.createElement("input");
+                const checkboxInvertText = document.createElement("label");
+        const buttonsContainer = document.createElement("div");
+            const buttonCancel = document.createElement("div");
+                const buttonTextCancel = document.createElement("p");
+            const buttonApply = document.createElement("div");
+                const buttonTextApply = document.createElement("p");
 
 
-    newContentMenu.classList.add("newContentMenu");
     imgContainer.classList.add("imgContainer");
     img.classList.add("img", "gcse-search");
     inputForm.classList.add("inputForm");
@@ -104,25 +102,24 @@ function addNewContentMenu(isBackground) {
     buttonApply.onclick = function() {toggleAddContentMenu(0, 1, isBackground)};
     buttonTextApply.innerHTML = "Apply";
 
-    main.appendChild(newContentMenu);
-        newContentMenu.appendChild(imgContainer);
-            imgContainer.appendChild(img);
-        newContentMenu.appendChild(inputForm);
-            inputForm.appendChild(formContainer);
-                formContainer.appendChild(inputURL);
-                formContainer.appendChild(inputText);
-            inputForm.appendChild(checkboxes);
-                // checkboxes.appendChild(checkboxDiv1);
-                //     checkboxDiv1.appendChild(checkboxCover);
-                //     checkboxDiv1.appendChild(checkboxCoverText);
-                checkboxes.appendChild(checkboxDiv2);   
-                    checkboxDiv2.appendChild(checkboxInvert);
-                    checkboxDiv2.appendChild(checkboxInvertText);
-        newContentMenu.appendChild(buttonsContainer);
-            buttonsContainer.appendChild(buttonCancel);
-                buttonCancel.appendChild(buttonTextCancel);
-            buttonsContainer.appendChild(buttonApply);
-                buttonApply.appendChild(buttonTextApply);
+    newContentMenu.appendChild(imgContainer);
+        imgContainer.appendChild(img);
+    newContentMenu.appendChild(inputForm);
+        inputForm.appendChild(formContainer);
+            formContainer.appendChild(inputURL);
+            formContainer.appendChild(inputText);
+        inputForm.appendChild(checkboxes);
+            // checkboxes.appendChild(checkboxDiv1);
+            //     checkboxDiv1.appendChild(checkboxCover);
+            //     checkboxDiv1.appendChild(checkboxCoverText);
+            checkboxes.appendChild(checkboxDiv2);   
+                checkboxDiv2.appendChild(checkboxInvert);
+                checkboxDiv2.appendChild(checkboxInvertText);
+    newContentMenu.appendChild(buttonsContainer);
+        buttonsContainer.appendChild(buttonCancel);
+            buttonCancel.appendChild(buttonTextCancel);
+        buttonsContainer.appendChild(buttonApply);
+            buttonApply.appendChild(buttonTextApply);
     
     if (isBackground)
     {
@@ -131,9 +128,29 @@ function addNewContentMenu(isBackground) {
             
 }
 
+function removeNewContentMenu(isBackground) {
+    const newContentMenu = document.querySelector(".newContentMenu");
+    const imgContainer = document.querySelector(".imgContainer");
+    const inputForm = document.querySelector(".inputForm");
+    const checkboxes = document.querySelector(".checkboxes");
+    const buttonsContainer = document.querySelector(".buttons");
+
+    imgContainer.remove();
+    inputForm.remove();
+    checkboxes.remove();
+    buttonsContainer.remove();
+
+    console.log(newContentMenu.childElementCount);
+}
+
 function toggleAddContentMenu(show, save, isBackground) { 
     if (show) {
         addNewContentMenu(isBackground);
+        let addContentMenu = document.querySelector(".newContentMenu");
+        
+        addContentMenu.style.width = "20em";
+        addContentMenu.style.height = "30em";
+        addContentMenu.style.opacity = "1";
     }
     else if (!show) {
         let addContentMenu = document.querySelector(".newContentMenu");
@@ -145,7 +162,10 @@ function toggleAddContentMenu(show, save, isBackground) {
                 addBookmark();
             }
         }
-        addContentMenu.remove();
+        addContentMenu.style.width = "0em";
+        addContentMenu.style.height = "0em";
+        addContentMenu.style.opacity = "0";
+        removeNewContentMenu(isBackground);
     }
 }
 
@@ -209,11 +229,10 @@ function loadImage() {
 }
 
 function changeBackground() {
-    var imageInput = document.querySelector(".backgroundInput").value;
-    var currentBackground = document.querySelector("#main").style;
-    console.log(imageInput);
-    currentBackground.backgroundImage = "url("+imageInput+")";
-    saveLocalBackground(imageInput);
+    let input = document.querySelector(".urlInput").value;
+    let currentBackground = document.querySelector("#main").style;
+    currentBackground.backgroundImage = "url("+input+")";
+    saveLocalBackground(input);
 }
 
 function saveLocalBackground(newBackground) {
