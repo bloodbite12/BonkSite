@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", getBookmarks);
 document.addEventListener("DOMContentLoaded", getBackground);
 
+
 function pageLoad() {
     var background = document.getElementById("background");
     background.style.opacity = "1";
@@ -51,50 +52,159 @@ function showMenu() {
     }
 }
 
-function toggleChangeBackground(show, save) {
-    var backgroundMenu = document.querySelector(".newBackground").style;
-    var button = document.querySelector(".addBackgroundButton").style;
-    var addContentMenu = document.querySelector(".addBackgroundMenu").style;
+function addNewContentMenu(isBackground) {
+    const main = document.querySelector("#main");
+        const newContentMenu = document.createElement("div");
+            const imgContainer = document.createElement("div");
+                const img = document.createElement("div");
+            const inputForm = document.createElement("form");
+                const formContainer = document.createElement("div");
+                    const inputURL = document.createElement("input");
+                    const inputText = document.createElement("input");
+            const checkboxes = document.createElement("div");
+                // const checkboxDiv1 = document.createElement("div");
+                //     const checkboxCover = document.createElement("input");
+                //     const checkboxCoverText = document.createElement("label");
+                const checkboxDiv2 = document.createElement("div");
+                    const checkboxInvert = document.createElement("input");
+                    const checkboxInvertText = document.createElement("label");
+            const buttonsContainer = document.createElement("div");
+                const buttonCancel = document.createElement("div");
+                    const buttonTextCancel = document.createElement("p");
+                const buttonApply = document.createElement("div");
+                    const buttonTextApply = document.createElement("p");
 
-    var img = document.querySelector(".imageOutput");
-    var imgContainer = document.querySelector(".backgroundImage").style;
-    var backgroundForm = document.querySelector(".backgroundForm");
+
+    newContentMenu.classList.add("newContentMenu");
+    imgContainer.classList.add("imgContainer");
+    img.classList.add("img", "gcse-search");
+    inputForm.classList.add("inputForm");
+    formContainer.classList.add("formContainer");
+    inputURL.classList.add("urlInput", "input");
+    inputURL.type = "url";
+    inputURL.placeholder = "Image url";
+    inputURL.oninput = function() {loadImage()};
+    inputText.classList.add("linkInput", "input");
+    inputText.type = "text"
+    inputText.placeholder = "Target url (google.com)";
+    checkboxes.classList.add("checkboxes");
+    // checkboxCover.classList.add("coverImageToggle");
+    // checkboxCover.type = "checkbox";
+    // checkboxCoverText.innerHTML = "Cover";
+    // checkboxCover.onclick = function() {cover()};
+    checkboxInvert.classList.add("invertImageToggle");
+    checkboxInvert.type = "checkbox";
+    checkboxInvert.onclick = function() {invert()};
+    checkboxInvertText.innerHTML = "Invert";
+    buttonsContainer.classList.add("buttons");
+    buttonCancel.classList.add("button", "cancel");
+    buttonCancel.onclick = function() {toggleAddContentMenu(0, 0, isBackground)};
+    buttonTextCancel.innerHTML = "Cancel";
+    buttonApply.classList.add("button", "apply");
+    buttonApply.onclick = function() {toggleAddContentMenu(0, 1, isBackground)};
+    buttonTextApply.innerHTML = "Apply";
+
+    main.appendChild(newContentMenu);
+        newContentMenu.appendChild(imgContainer);
+            imgContainer.appendChild(img);
+        newContentMenu.appendChild(inputForm);
+            inputForm.appendChild(formContainer);
+                formContainer.appendChild(inputURL);
+                formContainer.appendChild(inputText);
+            inputForm.appendChild(checkboxes);
+                // checkboxes.appendChild(checkboxDiv1);
+                //     checkboxDiv1.appendChild(checkboxCover);
+                //     checkboxDiv1.appendChild(checkboxCoverText);
+                checkboxes.appendChild(checkboxDiv2);   
+                    checkboxDiv2.appendChild(checkboxInvert);
+                    checkboxDiv2.appendChild(checkboxInvertText);
+        newContentMenu.appendChild(buttonsContainer);
+            buttonsContainer.appendChild(buttonCancel);
+                buttonCancel.appendChild(buttonTextCancel);
+            buttonsContainer.appendChild(buttonApply);
+                buttonApply.appendChild(buttonTextApply);
     
-    if (show && (!button.opacity || button.opacity === "1")) {
+    if (isBackground)
+    {
+        inputText.remove();
+    }
+            
+}
 
-        button.opacity = "0";
-
-        backgroundMenu.position = "absolute";
-        backgroundMenu.backgroundColor = "#3b3b3b";
-        backgroundMenu.width = "22em";
-        backgroundMenu.height = "20em";
-        backgroundMenu.left = "calc(-50vw + 6em)";
-        backgroundMenu.borderRadius = "10px";
-        backgroundMenu.zIndex = "1";
-        backgroundMenu.marginTop = "20em";
-
-        addContentMenu.opacity = "1";
-        addContentMenu.pointerEvents = "unset";
+function toggleAddContentMenu(show, save, isBackground) { 
+    if (show) {
+        addNewContentMenu(isBackground);
     }
     else if (!show) {
-        button.opacity = "1";
-
-        backgroundMenu.backgroundColor = "$color3";
-        backgroundMenu.width = "100%";
-        backgroundMenu.height = "3em";
-        backgroundMenu.left = "0";
-        backgroundMenu.borderRadius = "0";
-        backgroundMenu.marginTop = "1em";
-        addContentMenu.opacity = "0";
-        addContentMenu.pointerEvents = "none";
-        
+        let addContentMenu = document.querySelector(".newContentMenu");
         if (save) {
-            changeBackground();
+            if (isBackground) {
+                changeBackground();
+            }
+            else {
+                addBookmark();
+            }
         }
-        img.src = ""
-        imgContainer.height = "4em";
-        backgroundForm.reset();
-        invert(0);
+        addContentMenu.remove();
+    }
+}
+
+
+function addBookmark() {
+    let imageInput = document.querySelector(".urlInput").value;
+    let nameInput = document.querySelector(".linkInput").value;
+    let inverted = document.querySelector(".invertImageToggle").checked;
+
+    if (imageInput.slice(-1 -3) !== (".png" || ".jpg" || ".svg")) {
+        console.log(imageInput);
+        var temp = imageInput;
+        imageInput = "https://s2.googleusercontent.com/s2/favicons?domain="+temp;
+        console.log(imageInput);
+    }
+
+    const bookmarkContainer = document.getElementById("sidebarContainer");
+    const bookmarkDiv = document.createElement("div");
+    bookmarkDiv.classList.add("content");
+    bookmarkDiv.onmouseover = function() {expand(this, 1)};
+    bookmarkDiv.onmouseout = function() {expand(this, 0)};
+    bookmarkDiv.draggable = function() {true};
+    bookmarkDiv.ondrop = function() {drop(event, this)};
+    bookmarkDiv.ondragstart = function() {drag(event, this)};
+    bookmarkDiv.ondragover = function() {allowDrop(event)};
+    const newLogo = document.createElement("img");
+    newLogo.classList.add("logo");
+    newLogo.src = imageInput;
+    newLogo.alt = nameInput;
+    if (inverted) {
+        newLogo.style.filter = "invert(1)";
+        newLogo.alt = nameInput + inverted;
+    }
+    newLogo.onclick= function() {pageTransition(this)};
+    bookmarkDiv.appendChild(newLogo);
+    bookmarkContainer.appendChild(bookmarkDiv);
+    saveLocalBookmarks(newLogo);
+}
+
+function hndlr(response) {
+    var item = response.items[0];
+    img = document.querySelector(".img");
+    img.style.backgroundImage = "url("+item.link+")";
+}
+
+
+function loadImage() {
+    let input = document.querySelector(".urlInput").value;
+    let img = document.querySelector(".img");
+    let key = "AIzaSyBGHiXjHu_ZQBRMmDypOVhUphc8Mj51lWg";
+    if (input.slice(-1 -3) !== (".png" || ".jpg" || ".svg")) {
+        if (input.slice(-1 -3) === (".com"))
+        {
+            var script = document.querySelector("#getImageScript");
+            script.src = "https://www.googleapis.com/customsearch/v1?searchType=image&key=AIzaSyBGHiXjHu_ZQBRMmDypOVhUphc8Mj51lWg&cx=d116d780df4f0c388&callback=hndlr&q="+input.slice(0, -4);
+        }
+    }
+    else {
+        img.style.backgroundImage = "url("+input+")";
     }
 }
 
@@ -135,16 +245,23 @@ function getBackground() {
     });
 }
 
-
-
-function invert(bool) {
-    let image = document.querySelector(".imageOutput");
-    // console.log(image.style.filter);
+function invert() {
+    let image = document.querySelector(".img");
     if (image.style.filter === "invert(0)" || !image.style.filter) {
         image.style.filter = "invert(1)";
     }
-    else if (!bool || image.style.filter === "invert(1)") {
+    else if (image.style.filter === "invert(1)") {
         image.style.filter = "invert(0)";
+    }
+}
+
+function cover() {
+    let image = document.querySelector(".img");
+    if (image.style.backgroundSize === "contain" || !image.style.backgroundSize) {
+        image.style.backgroundSize = "cover";
+    }
+    else if (image.style.backgroundSize === "cover") {
+        image.style.backgroundSize = "contain";
     }
 }
 
@@ -177,7 +294,7 @@ function allowDrop(ev) {
 
 var dragSrcEl = null;
 function drag(ev, self) {
-    let trashcan = document.getElementById("trashcan");
+    let trashcan = document.querySelector(".trashcan");
     dragSrcEl = self;
     ev.dataTransfer.setData("text/html", self.innerHTML);
 
@@ -188,12 +305,13 @@ function drag(ev, self) {
 }
 
 function handleDragEnd() {
+    let trashcan = document.querySelector(".trashcan");
     trashcan.style.height = "0";
     trashcan.style.marginTop = "0";
 }
 
 function drop(ev, self) {
-    let trashcan = document.getElementById("trashcan");
+    let trashcan = document.querySelector(".trashcan");
     ev.preventDefault(false);
     
     if (self != trashcan)
@@ -267,96 +385,6 @@ function moveBookmark(target, self) {
     // temp = bookmarks[bookmarks.indexOf(bookmarkIndexSelf)];
     localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
     // console.log(bookmarks);
-}
-
-function toggleAddContentMenu(show, save) {
-   
-    var contextMenu = document.querySelector(".newContent").style;
-    var button = document.querySelector(".addContentButton").style;
-    var addContentMenu = document.querySelector(".addContentMenu").style;
-
-    var img = document.querySelector(".imageOutput");
-    var imgContainer = document.querySelector(".contentImage").style;
-    var bookmarkForm = document.querySelector(".bookmarkForm");
-    
-    if (show && (!button.opacity || button.opacity === "1")) {
-
-        button.opacity = "0";
-
-        contextMenu.position = "absolute";
-        contextMenu.backgroundColor = "#3b3b3b";
-        contextMenu.width = "22em";
-        contextMenu.height = "20em";
-        contextMenu.left = "calc(50vw - 6em)";
-        contextMenu.borderRadius = "10px";
-        contextMenu.zIndex = "1";
-
-        addContentMenu.opacity = "1";
-        addContentMenu.pointerEvents = "unset";
-    }
-    else if (!show) {
-        button.opacity = "1";
-
-        contextMenu.position = "relative";
-        contextMenu.backgroundColor = "$color3";
-        contextMenu.width = "10em";
-        contextMenu.height = "3em";
-        contextMenu.left = "0";
-        contextMenu.borderRadius = "0";
-
-        addContentMenu.opacity = "0";
-        addContentMenu.pointerEvents = "none";
-        
-        if (save) {
-            addBookmark();
-        }
-        img.src = ""
-        imgContainer.height = "4em";
-        bookmarkForm.reset();
-        invert(0);
-    }
-    
-}
-
-function addBookmark() {
-    var imageInput = document.querySelector(".imageInput").value;
-    var nameInput = document.querySelector(".nameInput").value;
-    var inverted = document.querySelector("#invertImage").checked;
-
-    // console.log(inverted);
-
-    var bookmarkContainer = document.getElementById("sidebarContainer");
-    const bookmarkDiv = document.createElement("div");
-    bookmarkDiv.classList.add("content");
-    bookmarkDiv.onmouseover = function() {expand(this, 1)};
-    bookmarkDiv.onmouseout = function() {expand(this, 0)};
-    bookmarkDiv.draggable = function() {true};
-    bookmarkDiv.ondrop = function() {drop(event, this)};
-    bookmarkDiv.ondragstart = function() {drag(event, this)};
-    bookmarkDiv.ondragover = function() {allowDrop(event)};
-    const newLogo = document.createElement("img");
-    newLogo.classList.add("logo");
-    newLogo.src = imageInput;
-    newLogo.alt = nameInput;
-    if (inverted) {
-        newLogo.style.filter = "invert(1)";
-        newLogo.alt = nameInput + inverted;
-    }
-    newLogo.onclick= function() {pageTransition(this)};
-    bookmarkDiv.appendChild(newLogo);
-    bookmarkContainer.appendChild(bookmarkDiv);
-    saveLocalBookmarks(newLogo);
-}
-
-function loadImage() {
-    var input = document.querySelector(".imageInput").value;
-    var img = document.querySelector(".imageOutput");
-    var imgContainer = document.querySelector(".contentImage").style;
-
-    img.src = input;
-    img.style.margin = "1em 0";
-    imgContainer.height = "12em";
-
 }
 
 function saveLocalBookmarks(newLogo) {

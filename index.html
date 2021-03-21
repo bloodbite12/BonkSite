@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet"> 
     <script src="javascript.js"></script><link rel="preconnect" href="https://fonts.gstatic.com">
+    <script id="getImageScript"></script>
     <title>BonkHomePage</title>
 </head>
 <body onload="pageLoad()">
@@ -15,57 +16,29 @@
         <div id="sidebar">
             <div id="sidebarContainer">
             </div>
-            <div class="content" id="trashcan" ondrop="drop(event, this)" ondragover="allowDrop(event)">
+            <div class="content trashcan" ondrop="drop(event, this)" ondragover="allowDrop(event)">
                 <img src="https://freeiconshop.com/wp-content/uploads/edd/trash-var-flat.png" alt="trashIcon">
             </div>
             <div class="content newContent">
-                <p class="addContentButton" onclick="toggleAddContentMenu(1, 0)">Add Content</p>
-                <div class="addContentMenu">
-                    <div class="contentImage">
-                        <img class="imageOutput" src="" alt="">
-                        <form class="bookmarkForm">
-                            <input type="url" class="imageInput" name="Image Link" oninput="loadImage()" placeholder="Image Link">
-                            <input type="text" class="nameInput" name="Name" placeholder="Link (google.com)">
-                            <div id="checkbox">
-                                <input type="checkbox" id="invertImage" onclick="invert(1)">Invert</input:Checkbox>
-                            </div>
-                        </form>
-                        
-                    </div>
-                    <div class="buttons">
-                        <button class="cancelButton" onclick="toggleAddContentMenu(0, 0)"><p class="buttonText">Cancel</p></button>
-                        <button class="applyButton" onclick="toggleAddContentMenu(0, 1)"><p class="buttonText">Apply</p></button>  
-                    </div>
-                </div>
+                <p class="addContentButton" onclick="toggleAddContentMenu(1, 0, 0)">Add Content</p>
             </div>
         </div>
         <div id="main">
-            <div id="snake">
+            <!-- <div id="snake">
                 <div id="playGameButton" onmouseover="expand(this, 1)" onmouseout="expand(this, 0)" onclick="playGame()">
                     <p>Play Snake</p>
                 </div>
                 <div id="game">
                 </div>
-            </div>
+            </div> -->
         </div>
         <div id="menu">
             <div class="menuButton" onclick="showMenu()">
                 <div class="menuButton__bar"></div>
             </div>
             <div id="menuContent">
-                <div class="content newBackground">
-                    <p class="addBackgroundButton" onclick="toggleChangeBackground(1, 0)">Change Background</p>
-                    <div class="addBackgroundMenu">
-                        <div class="backgroundImage">
-                            <img class="imageOutput" src="" alt="">
-                            <form class="backgroundForm">
-                                <input type="url" class="imageInput backgroundInput" name="Image Link" oninput="loadImage()" placeholder="Image Link">
-                        </form>
-                    </div>
-                    <div class="buttons backgroundButtons">
-                        <button class="cancelButton" onclick="toggleChangeBackground(0, 0)"><p class="buttonText">Cancel</p></button>
-                        <button class="applyButton" onclick="toggleChangeBackground(0, 1)"><p class="buttonText">Apply</p></button>  
-                    </div>
+                <div class="content newContent">
+                    <p class="addContentButton" onclick="toggleAddContentMenu(1, 0, 1)">Change Background</p>
                 </div>
             </div>
             </div>

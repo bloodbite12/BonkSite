@@ -5,6 +5,8 @@
           box-sizing: border-box;
   color: white;
   font-family: "Roboto", sans-serif;
+  border: none;
+  outline: none;
 }
 
 body {
@@ -17,162 +19,6 @@ body p:hover {
   cursor: pointer;
   -webkit-transform: scaleX(1.1) scaleY(1.1);
           transform: scaleX(1.1) scaleY(1.1);
-}
-
-body .addContentMenu,
-body .addBackgroundMenu {
-  pointer-events: none;
-  -webkit-transition: ease-in-out 300ms;
-  transition: ease-in-out 300ms;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  position: absolute;
-  opacity: 0;
-  width: 100%;
-  height: 100%;
-}
-
-body .addContentMenu .contentImage,
-body .addContentMenu .backgroundImage,
-body .addBackgroundMenu .contentImage,
-body .addBackgroundMenu .backgroundImage {
-  -webkit-transition: height ease-in-out 500ms;
-  transition: height ease-in-out 500ms;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  height: 4em;
-  width: 22em;
-  -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-          box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  background-color: #383838;
-  overflow: hidden;
-}
-
-body .addContentMenu .contentImage img,
-body .addContentMenu .backgroundImage img,
-body .addBackgroundMenu .contentImage img,
-body .addBackgroundMenu .backgroundImage img {
-  -webkit-transition: ease-in-out 500ms;
-  transition: ease-in-out 500ms;
-  width: 20em;
-  height: 4em;
-  margin: -6em 0 0 0;
-  border: none;
-  outline: none;
-}
-
-body .addContentMenu .contentImage input,
-body .addContentMenu .backgroundImage input,
-body .addBackgroundMenu .contentImage input,
-body .addBackgroundMenu .backgroundImage input {
-  background-color: #383838;
-  text-align: center;
-  width: 100%;
-  font-size: 14px;
-  padding: 0.25em;
-  border: none;
-  outline: none;
-}
-
-body .addContentMenu .contentImage #checkbox,
-body .addContentMenu .backgroundImage #checkbox,
-body .addBackgroundMenu .contentImage #checkbox,
-body .addBackgroundMenu .backgroundImage #checkbox {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: auto;
-  height: 1em;
-  width: 30%;
-}
-
-body .addContentMenu .contentImage #checkbox #invertImage,
-body .addContentMenu .backgroundImage #checkbox #invertImage,
-body .addBackgroundMenu .contentImage #checkbox #invertImage,
-body .addBackgroundMenu .backgroundImage #checkbox #invertImage {
-  margin: 0 1em;
-  background-color: black;
-  width: 16px;
-  border: none;
-  outline: none;
-}
-
-body .addContentMenu .backgroundImage,
-body .addBackgroundMenu .backgroundImage {
-  height: 1.65em;
-}
-
-body .addContentMenu .buttons,
-body .addContentMenu .backgroundImage,
-body .addBackgroundMenu .buttons,
-body .addBackgroundMenu .backgroundImage {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-body .addContentMenu .buttons button,
-body .addContentMenu .backgroundImage button,
-body .addBackgroundMenu .buttons button,
-body .addBackgroundMenu .backgroundImage button {
-  background-color: #474747;
-  border: 0;
-  outline: 0;
-  padding: 1em 2em;
-  cursor: pointer;
-}
-
-body .addContentMenu .buttons button .buttonText,
-body .addContentMenu .backgroundImage button .buttonText,
-body .addBackgroundMenu .buttons button .buttonText,
-body .addBackgroundMenu .backgroundImage button .buttonText {
-  opacity: 1;
-  font-size: 20px;
-  color: whitesmoke;
-}
-
-body .addContentMenu .buttons button:hover .buttonText,
-body .addContentMenu .backgroundImage button:hover .buttonText,
-body .addBackgroundMenu .buttons button:hover .buttonText,
-body .addBackgroundMenu .backgroundImage button:hover .buttonText {
-  -webkit-transform: scaleX(1.1) scaleY(1.1);
-          transform: scaleX(1.1) scaleY(1.1);
-}
-
-body .addContentMenu .buttons .cancelButton,
-body .addContentMenu .backgroundImage .cancelButton,
-body .addBackgroundMenu .buttons .cancelButton,
-body .addBackgroundMenu .backgroundImage .cancelButton {
-  border-radius: 0 10px 0 0;
-}
-
-body .addContentMenu .buttons .applyButton,
-body .addContentMenu .backgroundImage .applyButton,
-body .addBackgroundMenu .buttons .applyButton,
-body .addBackgroundMenu .backgroundImage .applyButton {
-  border-radius: 10px 0 0 0;
 }
 
 body .addBackgroundMenu {
@@ -215,26 +61,6 @@ body #background #sidebar {
   left: 0;
 }
 
-body #background #sidebar #sidebarContainer .content {
-  height: 3em;
-  width: 100%;
-  outline: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-transition: ease-in-out 200ms;
-  transition: ease-in-out 200ms;
-}
-
-body #background #sidebar #sidebarContainer .content .logo {
-  cursor: pointer;
-  padding-top: 1em;
-  max-width: 80%;
-}
-
 body #background .content {
   height: 3em;
   width: 100%;
@@ -249,13 +75,18 @@ body #background .content {
   transition: ease-in-out 200ms;
 }
 
-body #background #trashcan {
+body #background .content .logo {
+  cursor: pointer;
+  padding-top: 1em;
+  max-width: 80%;
+}
+
+body #background .trashcan {
   margin-top: 0;
   height: 0;
 }
 
-body #background .newContent,
-body #background .newBackground {
+body #background .newContent {
   margin-top: 1em;
   position: absolute;
   left: 0;
@@ -269,17 +100,13 @@ body #background .newBackground {
   overflow: hidden;
 }
 
-body #background .newContent .addContentButton,
-body #background .newContent .addBackgroundButton,
-body #background .newBackground .addContentButton,
-body #background .newBackground .addBackgroundButton {
+body #background .newContent .addContentButton {
   color: whitesmoke;
-  -webkit-transition: ease-in-out 500ms;
-  transition: ease-in-out 500ms;
+  -webkit-transition: ease-in-out 300ms;
+  transition: ease-in-out 300ms;
 }
 
-body #background .newContent p,
-body #background .newBackground p {
+body #background .newContent p {
   overflow: hidden;
   white-space: nowrap;
 }
@@ -340,6 +167,148 @@ body #background #main #snake #game {
   margin: -12px 0 0 -58px;
   width: 500px !important;
   height: 500px !important;
+}
+
+body #background #main .newContentMenu {
+  width: 20em;
+  height: 30em;
+  margin-top: 10em;
+  border-radius: 20px;
+  background-color: #2c2c2c;
+  -webkit-box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+body #background #main .newContentMenu .imgContainer {
+  height: 10em;
+  background-color: #222222;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body #background #main .newContentMenu .imgContainer .img {
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+body #background #main .newContentMenu .inputForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 17em;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body #background #main .newContentMenu .inputForm .formContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body #background #main .newContentMenu .inputForm .formContainer .input {
+  padding: 0 0.5em;
+  background-color: #363636;
+  height: 2em;
+  text-align: center;
+}
+
+body #background #main .newContentMenu .inputForm .formContainer .input:last-child {
+  margin-bottom: 1em;
+}
+
+body #background #main .newContentMenu .inputForm .checkboxes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+body #background #main .newContentMenu .inputForm .checkboxes div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+}
+
+body #background #main .newContentMenu .inputForm .checkboxes input {
+  margin: 5px 0 0.5em 0;
+}
+
+body #background #main .newContentMenu .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body #background #main .newContentMenu .buttons .button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  height: 3em;
+  width: 5em;
+  background-color: #363636;
+  text-align: center;
+  -webkit-transition: 200ms ease-in-out;
+  transition: 200ms ease-in-out;
+  cursor: pointer;
+}
+
+body #background #main .newContentMenu .buttons .button:hover {
+  background-color: #3b3b3b;
+}
+
+body #background #main .newContentMenu .buttons .cancel {
+  border-radius: 0 20px 0 0;
+}
+
+body #background #main .newContentMenu .buttons .cancel:hover {
+  -webkit-transform: scale(1.1) translate(3px, -2px);
+          transform: scale(1.1) translate(3px, -2px);
+}
+
+body #background #main .newContentMenu .buttons .apply {
+  border-radius: 20px 0 0 0;
+}
+
+body #background #main .newContentMenu .buttons .apply:hover {
+  -webkit-transform: scale(1.1) translate(-3px, -2px);
+          transform: scale(1.1) translate(-3px, -2px);
 }
 
 body #background #menu {
