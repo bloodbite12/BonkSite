@@ -3,6 +3,7 @@ $color2: #202020;
 $color3: #212121;
 $color4: #383838;
 $color5: #474747;
+$color6: #2c2c2c;
 
 * {
 	margin: 0;
@@ -48,7 +49,7 @@ body {
 		#sidebar {
 			position: absolute;
 			z-index: 5;
-			background-color: $color3;
+			background-color: $color6;
 			transition: left ease-in-out 500ms, opacity ease-in-out 500ms;
 			width: 10em;
 			height: 100%;
