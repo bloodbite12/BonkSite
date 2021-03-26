@@ -175,7 +175,7 @@ function addBookmark() {
     let nameInput = document.querySelector(".linkInput").value;
     let inverted = document.querySelector(".invertImageToggle").checked;
 
-    if (imageInput.slice(-1 -3) !== (".png" || ".jpg" || ".svg")) {
+    if (imageInput.slice(-1 -3) !== ".png" && imageInput.slice(-1 -3) !== ".jpg" && imageInput.slice(-1 -3) !== ".svg") {
         console.log(imageInput);
         var temp = imageInput;
         imageInput = "https://s2.googleusercontent.com/s2/favicons?domain="+temp;
@@ -215,8 +215,8 @@ function hndlr(response) {
 function loadImage() {
     let input = document.querySelector(".urlInput").value;
     let img = document.querySelector(".img");
-    let key = "AIzaSyBGHiXjHu_ZQBRMmDypOVhUphc8Mj51lWg";
-    if (input.slice(-1 -3) !== (".png" || ".jpg" || ".svg")) {
+    if (input.slice(-1 -3) !== ".png" && input.slice(-1 -3) !== ".jpg" && input.slice(-1 -3) !== ".svg") {
+        console.log(input.slice(-1 -3));
         if (input.slice(-1 -3) === (".com"))
         {
             var script = document.querySelector("#getImageScript");
