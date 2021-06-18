@@ -61,6 +61,10 @@ body #background #sidebar {
   left: 0;
 }
 
+body #background #sidebarContainer {
+  padding-top: 1em;
+}
+
 body #background .content {
   height: 3em;
   width: 100%;
@@ -77,8 +81,8 @@ body #background .content {
 
 body #background .content .logo {
   cursor: pointer;
-  padding-top: 1em;
-  max-width: 80%;
+  padding: .25em;
+  max-width: 95%;
 }
 
 body #background .trashcan {
