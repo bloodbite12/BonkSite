@@ -97,10 +97,8 @@ function addNewContentMenu(isBackground) {
     buttonsContainer.classList.add("buttons");
     buttonCancel.classList.add("button", "cancel");
     buttonCancel.onclick = function() {toggleAddContentMenu(0, 0, isBackground)};
-    buttonTextCancel.innerHTML = "Cancel";
     buttonApply.classList.add("button", "apply");
     buttonApply.onclick = function() {toggleAddContentMenu(0, 1, isBackground)};
-    buttonTextApply.innerHTML = "Apply";
 
     newContentMenu.appendChild(imgContainer);
         imgContainer.appendChild(img);

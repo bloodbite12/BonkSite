@@ -220,7 +220,7 @@ body #background #main .mainContent .newContentMenu .inputForm {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 17em;
+  height: 15em;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -295,8 +295,10 @@ body #background #main .mainContent .newContentMenu .buttons .button {
           justify-content: center;
   -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
           box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  margin: 1em;
   height: 3em;
-  width: 5em;
+  width: 3em;
   background-color: #363636;
   text-align: center;
   -webkit-transition: 200ms ease-in-out;
@@ -305,25 +307,17 @@ body #background #main .mainContent .newContentMenu .buttons .button {
 }
 
 body #background #main .mainContent .newContentMenu .buttons .button:hover {
-  background-color: #3b3b3b;
+  opacity: .8;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 body #background #main .mainContent .newContentMenu .buttons .cancel {
-  border-radius: 0 20px 0 0;
-}
-
-body #background #main .mainContent .newContentMenu .buttons .cancel:hover {
-  -webkit-transform: scale(1.1) translate(3px, -2px);
-          transform: scale(1.1) translate(3px, -2px);
+  background-color: #ff3838;
 }
 
 body #background #main .mainContent .newContentMenu .buttons .apply {
-  border-radius: 20px 0 0 0;
-}
-
-body #background #main .mainContent .newContentMenu .buttons .apply:hover {
-  -webkit-transform: scale(1.1) translate(-3px, -2px);
-          transform: scale(1.1) translate(-3px, -2px);
+  background-color: #a9ff38;
 }
 
 body #background #menu {
