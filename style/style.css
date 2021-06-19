@@ -86,12 +86,14 @@ body #background .content .logo {
 }
 
 body #background .trashcan {
-  margin-top: 0;
   height: 0;
+  -webkit-transition: none;
+  transition: none;
+  -webkit-transition: height ease-in-out 200ms;
+  transition: height ease-in-out 200ms;
 }
 
 body #background .newContent {
-  margin-top: 1em;
   position: absolute;
   left: 0;
   display: -webkit-box;
@@ -224,7 +226,7 @@ body #background #main .mainContent .newContentMenu .inputForm {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 15em;
+  height: 16em;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -301,8 +303,8 @@ body #background #main .mainContent .newContentMenu .buttons .button {
           box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   border-radius: 50%;
   margin: 1em;
-  height: 3em;
-  width: 3em;
+  height: 2em;
+  width: 2em;
   background-color: #363636;
   text-align: center;
   -webkit-transition: 200ms ease-in-out;

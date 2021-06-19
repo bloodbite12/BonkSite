@@ -75,12 +75,12 @@ body {
 		}
 
 		.trashcan {
-			margin-top: 0;
 			height: 0;
+			transition: none;
+			transition: height ease-in-out 200ms;
 		}
 
 		.newContent {
-			margin-top: 1em;
 			position: absolute;
 			left: 0;
 			display: flex;
@@ -176,7 +176,7 @@ body {
 
 					.inputForm {
 						display: flex;
-						height: 15em;
+						height: 16em;
 						flex-direction: column;
 
 						.formContainer {
@@ -221,8 +221,8 @@ body {
 							box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 							border-radius: 50%;
 							margin: 1em;
-							height: 3em;
-							width: 3em;
+							height: 2em;
+							width: 2em;
 							background-color: #363636;
 							text-align: center;
 							transition: 200ms ease-in-out;

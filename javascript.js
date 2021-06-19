@@ -316,7 +316,6 @@ function drag(ev, self) {
     ev.dataTransfer.setData("text/html", self.innerHTML);
 
     trashcan.style.height = "4em";
-    trashcan.style.marginTop = "1em";
 
     self.addEventListener('dragend', handleDragEnd, false);
 }
@@ -324,7 +323,6 @@ function drag(ev, self) {
 function handleDragEnd() {
     let trashcan = document.querySelector(".trashcan");
     trashcan.style.height = "0";
-    trashcan.style.marginTop = "0";
 }
 
 function drop(ev, self) {
@@ -343,7 +341,6 @@ function drop(ev, self) {
         self.innerHTML = data;
         }
         trashcan.style.height = "0";
-        trashcan.style.marginTop = "0";
 
     }
     else {
