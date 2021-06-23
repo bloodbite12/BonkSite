@@ -20,11 +20,6 @@ body {
 	height: 100vh;
 	width: 100vw;
 
-	p:hover {
-		cursor: pointer;
-		transform: scaleX(1.1) scaleY(1.1);
-	}
-
 	.addBackgroundMenu {
 		transition: 500ms ease-in-out;
 	}
@@ -81,6 +76,7 @@ body {
 		}
 
 		.newContent {
+			cursor: pointer;
 			position: absolute;
 			left: 0;
 			display: flex;
@@ -97,6 +93,10 @@ body {
 				overflow: hidden;
 				white-space: nowrap;
 			}
+		}
+
+		.newContent:hover {
+			background-color: $color5;
 		}
 
 		#main {
@@ -148,10 +148,10 @@ body {
 				display: flex;
 				align-items: center;
 				justify-content: center;
+
 				.newContentMenu {
 					width: 0em;
-					height: 0em;
-					opacity: 0;
+					height: 30em;
 					border-radius: 20px;
 					background-color: #2c2c2c;
 					transition: 200ms ease-in-out;
@@ -188,6 +188,8 @@ body {
 								background-color: #363636;
 								height: 2em;
 								text-align: center;
+								margin-left: -6em;
+								margin-right: -6em;
 							}
 
 							.input:last-child {
@@ -248,7 +250,7 @@ body {
 
 		#menu {
 			position: absolute;
-			background-color: $color5;
+			background-color: $color6;
 			transition: ease-in-out 500ms;
 			right: 0;
 			width: 4em;
@@ -306,7 +308,7 @@ body {
 
 			#menuContent {
 				display: flex;
-				margin-top: 1em;
+				margin-top: 1.5em;
 				align-content: center;
 				align-items: center;
 				transition: 200ms ease-in-out;

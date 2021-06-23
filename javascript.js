@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", getBookmarks);
 document.addEventListener("DOMContentLoaded", getBackground);
 
-
 function pageLoad() {
     var background = document.getElementById("background");
     background.style.opacity = "1";
@@ -49,6 +48,29 @@ function showMenu() {
         menu.style.width = "4em";
         menu.style.height = "4em";
         menuContent.style.opacity = "0";
+    }
+}
+
+
+function toggleAddContentMenu(show, save, isBackground) { 
+    if (show) {
+        addNewContentMenu(isBackground);
+        let addContentMenu = document.querySelector(".newContentMenu");
+        
+        addContentMenu.style.width = "20em";
+    }
+    else if (!show) {
+        let addContentMenu = document.querySelector(".newContentMenu");
+        if (save) {
+            if (isBackground) {
+                changeBackground();
+            }
+            else {
+                addBookmark();
+            }
+        }
+        addContentMenu.style.width = "0em";
+        removeNewContentMenu(isBackground);
     }
 }
 
@@ -133,40 +155,14 @@ function removeNewContentMenu(isBackground) {
     const checkboxes = document.querySelector(".checkboxes");
     const buttonsContainer = document.querySelector(".buttons");
 
-    imgContainer.remove();
-    inputForm.remove();
-    checkboxes.remove();
-    buttonsContainer.remove();
 
-    console.log(newContentMenu.childElementCount);
+    setTimeout(function() { 
+        imgContainer.remove();
+        inputForm.remove();
+        checkboxes.remove();
+        buttonsContainer.remove(); 
+    }, 200);
 }
-
-function toggleAddContentMenu(show, save, isBackground) { 
-    if (show) {
-        addNewContentMenu(isBackground);
-        let addContentMenu = document.querySelector(".newContentMenu");
-        
-        addContentMenu.style.width = "20em";
-        addContentMenu.style.height = "30em";
-        addContentMenu.style.opacity = "1";
-    }
-    else if (!show) {
-        let addContentMenu = document.querySelector(".newContentMenu");
-        if (save) {
-            if (isBackground) {
-                changeBackground();
-            }
-            else {
-                addBookmark();
-            }
-        }
-        addContentMenu.style.width = "0em";
-        addContentMenu.style.height = "0em";
-        addContentMenu.style.opacity = "0";
-        removeNewContentMenu(isBackground);
-    }
-}
-
 
 function addBookmark() {
     let imageInput = document.querySelector(".urlInput").value;
